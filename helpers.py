@@ -122,28 +122,6 @@ def create_email_message(name: str, email: str, company: str, phone: str,
     msg['To'] = os.getenv("MESSAGE_TO")
     msg['Subject'] = os.getenv("MESSAGE_SUBJECT")
 
-    if not name:
-        raise HTTPException(status_code=400,
-                            detail="name field is required")
-    if not email:
-        raise HTTPException(status_code=400,
-                            detail="email field is required")
-    if not company:
-        raise HTTPException(status_code=400,
-                            detail="company field is required")
-    if not phone:
-        raise HTTPException(status_code=400,
-                            detail="phone field is required")
-    if not discount:
-        raise HTTPException(status_code=400,
-                            detail="discount field is required")
-    if not selected_items:
-        raise HTTPException(status_code=400,
-                            detail="selected_items field is required")
-    if not project_description:
-        raise HTTPException(status_code=400,
-                            detail="project_description field is required")
-
     message = create_message(name, company, phone,
                              email, selected_items,
                              project_description,
